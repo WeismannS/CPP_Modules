@@ -14,4 +14,5 @@ public  :
             void display();
             int get_counter();
 };
+void flush();
 #endif

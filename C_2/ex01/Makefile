@@ -3,7 +3,7 @@ NAME=exec
 CXX=c++
 CXXFLAGS=-std=c++98 -g3 -fsanitize=address
 
-SRC= main.cpp Harl.cpp
+SRC= main.cpp  Fixed.cpp 
 OBJ=$(SRC:.cpp=.o)
 
 all: $(NAME)

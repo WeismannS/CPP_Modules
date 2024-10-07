@@ -2,26 +2,21 @@
 
 int determine_level(std::string &level)
 {
-    if (level == "DEBUG")
-        return 0;
-    if (level == "INFO")
-        return 1;
-    if (level == "WARNING")
-        return 2;
-    if (level == "ERROR")
-        return 3;
-    return 4;
+    const char *levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+    for (int i = 0; i < 4; i++)
+    {
+        if (level == levels[i])
+            return i;
+    }
+    return -1;
 }
+
 void Harl::complain(std::string level)
 {
     void (Harl::*arr[4])(void) = {&Harl::debug,&Harl::info,&Harl::warning,&Harl::error};
-    
-    switch(int lvl = determine_level(level))
-    {
-        case 0 ... 3 :
-            (this->*arr[lvl])();
-            break;
-        default :
-            std::cout << "Damn it all!\n";
-    }
+    int lvl;
+    if (( lvl = determine_level(level)) != -1)
+        std::cout << "[ " << lvl << " ]\n";
+    else
+        std::cout << "Damn it all!\n";
 }
