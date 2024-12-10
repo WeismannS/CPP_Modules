@@ -40,6 +40,8 @@ void PhoneBook::display()
     index = 0;
     while (!std::cin.eof() && (std::cout << "Insert your contact's index to display more info\n") && !(std::cin >> index))
         flush();
+    if (std::cin.eof())
+    	return;
     if (index > (this->__contacts_counter % 8))
         return;
     for (int e = 0; e < 4; e++)

@@ -22,13 +22,13 @@ contact getContact()
     contact new_contact;
     while ((new_contact.firstName = getInput("Please Insert your First name!:")).empty() && !std::cin.eof())
         std::cout << "Please Insert your First name!:" << '\n';
-    while ( !std::cin.eof() && (new_contact.LastName = getInput("Please Insert your second name!:")).empty())
+    while ( !std::cin.eof() && (new_contact.LastName = getInput("Please Insert your second name!:")).empty() &&  !std::cin.eof() )
         std::cout << "Please Insert your second name!:" << '\n';
-    while ( !std::cin.eof() &&(new_contact.NickName = getInput("Please Insert your Nickname!:")).empty())
+    while ( !std::cin.eof() &&(new_contact.NickName = getInput("Please Insert your Nickname!:")).empty() &&  !std::cin.eof() )
         std::cout << "Please Insert your Nickname!:" << '\n';
-    while ( !std::cin.eof() && (new_contact.DarkestSecret = getInput("Please Insert your Darkest Secret!:")).empty())
+    while ( !std::cin.eof() && (new_contact.DarkestSecret = getInput("Please Insert your Darkest Secret!:")).empty() && !std::cin.eof() )
         std::cout << "Please Insert your Darkest Secret!:" << '\n';
-    while (!std::cin.eof() && (std::cout << "Please insert your phone number!" << '\n') && !(std::cin >> new_contact.number))
+    while (!std::cin.eof() && (std::cout << "Please insert your phone number!" << '\n') && !(std::cin >> new_contact.number) &&  !std::cin.eof() )
         flush();
     return new_contact;
 }
