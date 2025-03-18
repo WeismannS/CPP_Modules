@@ -1,0 +1,23 @@
+NAME= my_program
+
+CXX=c++
+CXXFLAGS= -Wall -Werror -Wextra -std=c++98 -g3 -fsanitize=address
+
+
+SRC= main.cpp
+OBJ=$(SRC:.cpp=.o)
+
+all: $(NAME)
+
+$(NAME): $(OBJ) Array.tpp Makefile
+		$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
+
+clean :
+		rm -f $(OBJ)
+
+fclean : clean
+		rm -f $(NAME)
+
+re : fclean all
+
+.PHONY: all clean fclean re
