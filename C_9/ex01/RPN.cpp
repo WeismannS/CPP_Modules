@@ -19,7 +19,7 @@ int calculate(int c, int b, char op) {
     return c / b;
   if (op == '*')
     return c * b;
-  throw "invalid operator";
+  throw std::runtime_error("invalid operator");
 }
 
 RPN::RPN(std::string formula) : express(formula) {}
