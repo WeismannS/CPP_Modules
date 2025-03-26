@@ -62,7 +62,8 @@ void BitcoinExchange::parse_line(std::stringstream &sline, char delim) {
   skip_spaces(sline);
   if (sline.get() != delim)
     throw BitcoinExchange::invalid_rate();
-  sline >> rate;
+  if (!(sline >> rate))
+    throw BitcoinExchange::invalid_rate();
   if (rate < 0 || rate >= static_cast<double>(std::numeric_limits<int>::max()))
     throw BitcoinExchange::invalid_rate();
   sline.str(""), sline.seekg(0);

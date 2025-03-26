@@ -16,7 +16,11 @@ int calculate(int c, int b, char op) {
   if (op == '-')
     return c - b;
   if (op == '/')
+  {
+    if (b == 0)
+        throw std::runtime_error("division by zero!");
     return c / b;
+  }
   if (op == '*')
     return c * b;
   throw std::runtime_error("invalid operator");

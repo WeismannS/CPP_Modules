@@ -26,7 +26,7 @@ public:
   void consume(std::string input_file);
   class invalid_date : public std::exception {
   public:
-    virtual const char *what() const throw() { return "invalid data"; }
+    virtual const char *what() const throw() { return "invalid date!"; }
   };
   class invalid_rate : public std::exception {
   public:
